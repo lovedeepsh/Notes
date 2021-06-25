@@ -1,0 +1,46 @@
+NOTES
+
+1) Difference between INIT.D and SYSTEMD?
+
+- The init daemon is going to be replaced with daemon systemd on some of the Linux Distributions, while a lot of them have already implemented it.
+
+# Before the understanding of the INIT.D and SYSTEMD we should first understand, What is INIT?
+
+- In Linux, INIT is the abbreviation of the Initialisation.
+- The init is a daemon process which starts as soon as the computer starts and continue running till, it is shutdown.
+- In-fact init is the first process that starts when a computer boots, making it the parent of all other running processes directly or indirectly and hence typically it is assigned “pid=1“.
+- If somehow init daemon could not start, no process will be started and the system will reach a stage called “Kernel Panic“.
+- init is most commonly referred to as System V init.
+- The need to replace init with something more perfect was felt from a long time and several alternatives were developed from time-to-time, some of which became distribution’s native init replacement, some of which are: Upstart, Epoch, Mudar and Systemd.
+
+
+# What is Systemd?
+
+- A systemd is a System Management Daemon named with UNIX convention to add ‘d‘ at the end of daemon.
+- Similar to init, systemd is the parent of all other processes directly or indirectly and is the first process that starts at boot hence typically assigned a “pid=1“.
+- A systemd, may refer to all the packages, utilities and libraries around daemon.
+- It itself is a background processes which is designed to start processes in parallel, thus reducing the boot time and computational overhead.
+
+
+# Why there was a nedd to replace the old INIT.D?
+
+- Init process starts serially i.e one task starts only after the last task startup was successful and it was loaded in the memory. whereas systemd run as a backgroud process itself and runs other process parallely.
+
+
+# Features of Systemd?
+
+Features of Systemd are :-
+- Concurrent and parallel processing at boot.
+- Ability to remove optional components.
+- Job Scheduling using systemd Calendar Timers.
+- Event Logging with journald.
+- Choice of logging System events with systemd as well as syslog.
+- Logs are stored in a Binary File.
+- Users login managed by systemd-logind.
+
+
+# Conclusion
+
+- Anything running as pid=1 must not break, must not be mess and must be controlled by users effectively and efficiently.
+
+

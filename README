@@ -1,0 +1,60 @@
+=======================
+Project Name -JENKINS X
+=======================
+
+Recquirements
+-------------
+- JAVA (1.8.0 or above)
+- 'jx' Command line tool
+- Cluster Created
+- Kuberneetes (optional0
+
+Platforms option
+----------------
+- Using the Google Cloud Shell
+- Connecting to the cluster from your laptop
+- Using Google Cloud from your laptop
+- Using Amazon (AWS)
+- Using Azure (AKS)
+- Using Oracle (OKE)
+- Using Minikube (local)
+- Using Minishift (local)
+
+
+Steps to setup Jenkins X
+------------------------
+
+- First you will need to get the jx command line tool locally on your machine.
+- You can use the jx command line to create a new kubernetes cluster with Jenkins X installed automatically.
+- If you already have an existing kubernetes cluster then install Jenkins X on your kubernetes cluster.
+- When you have a kubernetes cluster with Jenkins X installed, check out your next steps.
+
+Step 1 :- Get 'jx'
+```
+curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.80/jx-linux-amd64.tar.gz | tar xzv
+sudo mv jx /usr/local/bin
+```
+
+Step 2 :- Create new cluster on any of platform you choose (NOTE - Installing on kubernetes already created cluster contains different steps)
+```
+jx create cluster gke --skip-login  --default-admin-password=******** -n mycluster
+```
+Step 3:- Install Jenkins X on Kubernetes Cluster
+- Jenkins X can be installed on 1.8 or later of Kubernetes.
+- Recquirements are :-
+```
+1. RBAC is enabled
+2. Insecure docker registries are enabled. This is so that pipelines can use a docker registry running inside the kubernetes cluster (which typically is not public so no https support). You can modify your pipelines to use other registries later.
+3. A cluster with at least 4 vCpus in addition to the master node (e.g. 2 m4.large nodes + m4.large master)
+```
+- To enable RBAC you need to create a namespace using the command below
+```
+# kubectl create namespace opstree-123
+[NOTE:- namespace name should use lowercase letters with numbers including]
+```
+- To grant a role or cluster role [RBAC] to a user named "XYZ" in namespace "ABC"
+```
+kubectl create rolebinding bob-admin-binding --clusterrole=admin --user=lovedeeps789 --namespace=opstree-123
+```
+
+

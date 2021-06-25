@@ -1,0 +1,77 @@
+SYSTEMD
+
+1. Systemd Utilities
+
+- systemctl
+- journalctl
+- notify
+- analyze
+- cgls
+- cgtop
+- loginctl
+- nspawn
+
+2. Systemd Daemons
+
+- systemd
+- jounald
+- networkd
+- logind
+- user session
+
+3. Systemd Core
+
+- manager
+- namespace
+- cgroup
+- log
+- dbus
+- systemd
+- unit
+   . service
+   . snapshot
+   . timer
+   . path
+   . mount
+   . socket 
+   . target
+   . swap
+- login
+   . multiseat
+   . session
+   . pam
+   . inhibit
+
+4. Systemd Targets
+
+- bootmode
+- basic
+- shutdown
+- reboot
+- multi-user
+   . dbus
+   . dlog
+   . logind
+   . telephony
+- graphical
+   . user-session
+
+5. Systemd Libraries
+
+   . dbus-1
+   . libpam
+   . libcap
+   . libcryptsetup
+   . tcpwrapper
+   . libaudit
+   . libnotify
+
+6. Linux Kernel
+ 
+   . cgroups
+   . autofs
+   . kdbus 
+
+
+
+ 
